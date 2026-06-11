@@ -153,14 +153,12 @@
         <div class="kpi-pct">14.0% من الإجمالي</div>
       </div>
     </div>
-
     <div class="charts-row">
       <div class="chart-card">
         <div class="card-title">توزيع حالات السياسات</div>
         <div class="donut-wrap">
           <svg width="160" height="160" viewBox="0 0 160 160" style="flex-shrink:0">
             <circle cx="80" cy="80" r="60" fill="none" stroke="#1e2d47" stroke-width="24"/>
-            <!-- C=376.99 | expired:7/50=52.8 | review:30/50=226.2 | approved:13/50=97.9 -->
             <circle cx="80" cy="80" r="60" fill="none" stroke="#ef4444" stroke-width="24" stroke-dasharray="52.8 324.2" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
             <circle cx="80" cy="80" r="60" fill="none" stroke="#f59e0b" stroke-width="24" stroke-dasharray="226.2 150.8" stroke-dashoffset="-52.8" transform="rotate(-90 80 80)"/>
             <circle cx="80" cy="80" r="60" fill="none" stroke="#10b981" stroke-width="24" stroke-dasharray="97.9 279.1" stroke-dashoffset="-279" transform="rotate(-90 80 80)"/>
@@ -168,21 +166,9 @@
             <text x="80" y="94" text-anchor="middle" fill="#64748b" font-size="10" font-family="IBM Plex Sans Arabic">سياسة</text>
           </svg>
           <div class="donut-legend">
-            <div class="legend-item">
-              <div class="legend-dot" style="background:var(--approved)"></div>
-              <div class="legend-name">معتمدة</div>
-              <div><div class="legend-count" style="color:var(--approved)">13</div><div class="legend-pct">26.0%</div></div>
-            </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background:var(--review)"></div>
-              <div class="legend-name">قيد المراجعة</div>
-              <div><div class="legend-count" style="color:var(--review)">30</div><div class="legend-pct">60.0%</div></div>
-            </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background:var(--expired)"></div>
-              <div class="legend-name">منتهية</div>
-              <div><div class="legend-count" style="color:var(--expired)">7</div><div class="legend-pct">14.0%</div></div>
-            </div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--approved)"></div><div class="legend-name">معتمدة</div><div><div class="legend-count" style="color:var(--approved)">13</div><div class="legend-pct">26.0%</div></div></div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--review)"></div><div class="legend-name">قيد المراجعة</div><div><div class="legend-count" style="color:var(--review)">30</div><div class="legend-pct">60.0%</div></div></div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--expired)"></div><div class="legend-name">منتهية</div><div><div class="legend-count" style="color:var(--expired)">7</div><div class="legend-pct">14.0%</div></div></div>
           </div>
         </div>
       </div>
@@ -191,7 +177,6 @@
         <div class="bar-chart" id="barChart"></div>
       </div>
     </div>
-
     <div class="table-card">
       <div class="card-title">سجل السياسات التفصيلي</div>
       <div class="table-controls">
@@ -203,9 +188,7 @@
       </div>
       <div style="overflow-x:auto">
         <table>
-          <thead>
-            <tr><th>رقم السياسة</th><th>اسم السياسة</th><th>المسار</th><th>الحالة</th><th>تاريخ الانتهاء</th><th>ملاحظات</th><th>النسخة</th></tr>
-          </thead>
+          <thead><tr><th>رقم السياسة</th><th>اسم السياسة</th><th>المسار</th><th>الحالة</th><th>تاريخ الانتهاء</th><th>ملاحظات</th><th>النسخة</th></tr></thead>
           <tbody id="tableBody"></tbody>
         </table>
       </div>
@@ -218,13 +201,12 @@
 </main>
 <script>
 document.getElementById('dateDisplay').textContent=new Date().toLocaleDateString('ar-SA',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-
 const policies=[
   {id:'POL-001',name:'Policy & Procedures for Diabetes Screening',dept:'مسار الأمراض المزمنة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
   {id:'POL-002',name:'Referral policy between health surface layers',dept:'مسار الأمراض المزمنة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
   {id:'POL-003',name:'Categorization of diabetic patient policy',dept:'مسار الأمراض المزمنة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
   {id:'POL-004',name:'Assessment and Follow-up of Diabetic Patients Policy',dept:'مسار الأمراض المزمنة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
-  {id:'POL-005',name:'Flow of Pediatric obesity cases between levels PHC-Secondary, Tertiary Centre',dept:'مسار الأمراض المزمنة',status:'معتمدة',expiry:'2027-10-22',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/18IUbZFQGXT3eLc_oMz30x7GvOFK3MuSM/view?usp=sharing'},
+  {id:'POL-005',name:'Flow of obesity cases between levels PHC-Secondary, Tertiary Centre',dept:'مسار الأمراض المزمنة',status:'معتمدة',expiry:'2027-10-22',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1KkmjrNKhRqf_fvtT6sZWHIJKVcs1VTzP/view?usp=sharing'},
   {id:'POL-006',name:'NEW Hypertension patient policy',dept:'مسار الأمراض المزمنة',status:'معتمدة',expiry:'2029-06-15',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1rwcRvmy-xK0vrlAGH57R5VvMRvJ3Mr-c/view?usp=drive_link'},
   {id:'POL-007',name:'Hypertension patients follow up policy',dept:'مسار الأمراض المزمنة',status:'معتمدة',expiry:'2029-06-15',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1twuMemx7VK6duadpCsRGdX9K7YE04xA_/view?usp=drive_link'},
   {id:'POL-008',name:'Hypertension screening policy',dept:'مسار الأمراض المزمنة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
@@ -232,7 +214,7 @@ const policies=[
   {id:'POL-010',name:'Team Based Care Policy',dept:'مسار الأمراض المزمنة',status:'معتمدة',expiry:'2029-05-31',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1RjpmmTKqlPIzjVLQfm7-HsJMDsoGq4rx/view?usp=drive_link'},
   {id:'POL-011',name:'Colon Cancer Screeing policy',dept:'مسار الأمراض المزمنة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
   {id:'POL-012',name:'Chronic Disease Management Policy',dept:'مسار الأمراض المزمنة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
-  {id:'POL-013',name:'Multidisciplinary Team (MDT) Referral for Patients with Multiple Sclerosis',dept:'مسار الأمراض المزمنة',status:'معتمدة',expiry:'2029-05-31',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1lEwb4-jAUCv3c3GuRFR0wDY4A02bQe5u/view?usp=sharing'},
+  {id:'POL-013',name:'Multidisciplinary Team (MDT) Referral for Patients with Multiple Sclerosis (MS)',dept:'مسار الأمراض المزمنة',status:'معتمدة',expiry:'2029-05-31',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1lEwb4-jAUCv3c3GuRFR0wDY4A02bQe5u/view?usp=sharing'},
   {id:'POL-014',name:'Multiple Sclerosis (MS) Treatment Policy',dept:'مسار الأمراض المزمنة',status:'معتمدة',expiry:'2029-05-31',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1mn7pn6TDqjfxrsljQKQZQQ9CtDSttZQ1/view?usp=sharing'},
   {id:'POL-015',name:'Managment of Newly Diagnosed Dyslipidaemia',dept:'مسار الأمراض المزمنة',status:'منتهية',expiry:'',note:'بإنتظار تحديث قائد المسار',link:''},
   {id:'POL-016',name:'Home care policy approval (Included wound care)',dept:'مسار الأمراض المزمنة',status:'منتهية',expiry:'',note:'بإنتظار تحديث قائد المسار',link:''},
@@ -264,37 +246,29 @@ const policies=[
   {id:'POL-042',name:'Hypertensive Disorders in Pregnancy (CPG)',dept:'مسار الولادة الآمنة',status:'قيد المراجعة',expiry:'',note:'بإنتظار تحديث قائد المسار',link:''},
   {id:'POL-043',name:'MEWS (CPG)',dept:'مسار الولادة الآمنة',status:'قيد المراجعة',expiry:'',note:'بإنتظار تحديث قائد المسار',link:''},
   {id:'POL-044',name:'Vaginal Birth After Caesarean',dept:'مسار الولادة الآمنة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
-  {id:'POL-045',name:'Scoliosis Early Detection and Management Pathway Policy',dept:'مسار الحفاظ على الصحة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
+  {id:'POL-045',name:'Scoliosis Early Detection and Management Pathway Policy and Procedures',dept:'مسار الحفاظ على الصحة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
   {id:'POL-046',name:'Breast Feeding Policy',dept:'مسار الحفاظ على الصحة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
   {id:'POL-047',name:'Health Coach Policy',dept:'مسار الحفاظ على الصحة',status:'قيد المراجعة',expiry:'',note:'بالإدارة التنفيذية للجودة',link:''},
   {id:'POL-048',name:'School Health Awareness Program',dept:'مسار الحفاظ على الصحة',status:'معتمدة',expiry:'2029-03-01',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1S8V2WIO4MYixKKlF76yUVelKpJbfeCh4/view?usp=drive_link'},
   {id:'POL-049',name:'Field Vaccination Campaigns implemented within schools',dept:'مسار الحفاظ على الصحة',status:'معتمدة',expiry:'2029-03-01',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1D9VdE5OM2P2wZIexnY-rtl93z7LS-qqS/view?usp=sharing'},
   {id:'POL-050',name:'School Screening Program',dept:'مسار الحفاظ على الصحة',status:'معتمدة',expiry:'2029-03-01',note:'تم الإدراج بالمنصة',link:'https://drive.google.com/file/d/1Qu3bdNWS7BfezSWbRyR33HYggq6R_Ri4/view?usp=sharing'},
 ];
-
 const deptData=[
-  {name:'مسار الأمراض المزمنة',  a:7, r:7, e:7},
-  {name:'مسار الولادة الآمنة',    a:0, r:11,e:0},
-  {name:'مسار الرعاية العاجلة',   a:0, r:6, e:0},
-  {name:'مسار الحفاظ على الصحة',  a:3, r:3, e:0},
-  {name:'مسار الرعاية المخططة',   a:2, r:1, e:0},
-  {name:'مسار الرعاية التلطيفية', a:1, r:2, e:0},
+  {name:'مسار الأمراض المزمنة',  a:7,r:7,e:7},
+  {name:'مسار الولادة الآمنة',    a:0,r:11,e:0},
+  {name:'مسار الرعاية العاجلة',   a:0,r:6,e:0},
+  {name:'مسار الحفاظ على الصحة',  a:3,r:3,e:0},
+  {name:'مسار الرعاية المخططة',   a:2,r:1,e:0},
+  {name:'مسار الرعاية التلطيفية', a:1,r:2,e:0},
 ];
-
 const bc=document.getElementById('barChart');
-deptData.forEach(d=>{
-  const t=d.a+d.r+d.e,w=n=>t?(n/t*100).toFixed(1):0;
-  bc.innerHTML+=`<div class="bar-row"><div class="bar-label-row"><span class="bar-dept">${d.name}</span><div class="bar-counts">${d.a?`<span class="bar-count" style="background:rgba(16,185,129,.15);color:#10b981">${d.a}✓</span>`:''} ${d.r?`<span class="bar-count" style="background:rgba(245,158,11,.15);color:#f59e0b">${d.r}↻</span>`:''} ${d.e?`<span class="bar-count" style="background:rgba(239,68,68,.15);color:#ef4444">${d.e}✗</span>`:''}</div></div><div class="bar-track"><div class="bar-segment" style="width:${w(d.a)}%;background:#10b981"></div><div class="bar-segment" style="width:${w(d.r)}%;background:#f59e0b"></div><div class="bar-segment" style="width:${w(d.e)}%;background:#ef4444"></div></div></div>`;
-});
-
-let curFilter='all',curSearch='',curPage=1;
-const PER=12;
+deptData.forEach(d=>{const t=d.a+d.r+d.e,w=n=>t?(n/t*100).toFixed(1):0;bc.innerHTML+=`<div class="bar-row"><div class="bar-label-row"><span class="bar-dept">${d.name}</span><div class="bar-counts">${d.a?`<span class="bar-count" style="background:rgba(16,185,129,.15);color:#10b981">${d.a}✓</span>`:''} ${d.r?`<span class="bar-count" style="background:rgba(245,158,11,.15);color:#f59e0b">${d.r}↻</span>`:''} ${d.e?`<span class="bar-count" style="background:rgba(239,68,68,.15);color:#ef4444">${d.e}✗</span>`:''}</div></div><div class="bar-track"><div class="bar-segment" style="width:${w(d.a)}%;background:#10b981"></div><div class="bar-segment" style="width:${w(d.r)}%;background:#f59e0b"></div><div class="bar-segment" style="width:${w(d.e)}%;background:#ef4444"></div></div></div>`;});
+let curFilter='all',curSearch='',curPage=1;const PER=12;
 function getFiltered(){return policies.filter(p=>{const mf=curFilter==='all'||p.status===curFilter;const q=curSearch.toLowerCase();const ms=!q||p.name.toLowerCase().includes(q)||p.id.toLowerCase().includes(q)||p.dept.includes(curSearch);return mf&&ms;});}
 function dateClass(ds){if(!ds)return'';const diff=(new Date(ds)-new Date())/86400000;return diff<0?'overdue':diff<180?'soon':'';}
 function renderTable(){
   const filtered=getFiltered(),total=filtered.length;
-  const tp=Math.max(1,Math.ceil(total/PER));
-  if(curPage>tp)curPage=tp;
+  const tp=Math.max(1,Math.ceil(total/PER));if(curPage>tp)curPage=tp;
   const start=(curPage-1)*PER,data=filtered.slice(start,start+PER);
   const tbody=document.getElementById('tableBody');
   tbody.innerHTML=data.length?data.map(p=>{
